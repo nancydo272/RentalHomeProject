@@ -42,15 +42,117 @@ const AddRental = () => {
             setErrors(err.response.data.error)
         })
     }
+
     return (
         <div>
             <div>
                 <h1>Add Rental Home</h1>
                 {/* <Link to={`/user/${user.id}/dashboard`}>Dashboard</Link> */}
             </div>
-            <div className="row d-flex">
+            <div className="col-4 mx-auto">
                 <form onSubmit={submitHandler}>
-                    <div className="col">
+                    <div className="d-flex justify-content-between w-100">
+                        <div className="form-group">
+                            <label htmlFor="name">Title: </label>
+                            <input
+                                    type="text"
+                                    className="form-control"
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    value={title}
+                            />
+                            {errors.title ? <span className="text-danger">{errors.title.message}</span> : null }<br></br>
+                            <label htmlFor="name">Image URL: </label>
+                            <input
+                                    type="text"
+                                    className="form-control"
+                                    onChange={(e) => setImage(e.target.value)}
+                                    value={image}
+                                />
+                            {errors.image ? <span className="text-danger">{errors.image.message}</span> : null }<br></br>
+                            <label htmlFor="name">Owner: </label>
+                            <input
+                                    type="text"
+                                    className="form-control"
+                                    onChange={(e) => setOwner(e.target.value)}
+                                    value={owner}
+                                />
+                                {errors.owner ? <span className="text-danger">{errors.owner.message}</span> : null }<br></br>
+                            <label htmlFor="name">Location: </label>
+                            <input
+                                    type="text"
+                                    className="form-control"
+                                    onChange={(e) => setLocation(e.target.value)}
+                                    value={location}
+                                />
+                            <label htmlFor="name">Description: </label>
+                            <input
+                                    type="text"
+                                    className="form-control"
+                                    onChange={(e) => setDescription(e.target.value)}
+                                    value={description}
+                                />
+                                {errors.description ? <span className="text-danger">{errors.description.message}</span> : null }<br></br>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="name">Street Address: </label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                onChange={(e) => setStreetAddress(e.target.value)}
+                                    value={streetAddress}
+                                />
+                                {errors.streetAddress ? <span className="text-danger">{errors.streetAddress.message}</span> : null }<br></br>
+                            <label htmlFor="name">City: </label>
+                            <input
+                                    type="text"
+                                    className="form-control"
+                                    onChange={(e) => setCity(e.target.value)}
+                                    value={city}
+                                />
+                                {errors.city ? <span className="text-danger">{errors.city.message}</span> : null }<br></br>
+                            <label htmlFor="name">State: </label>
+                            <input
+                                    type="text"
+                                    className="form-control"
+                                    onChange={(e) => setState(e.target.value)}
+                                    value={state}
+                                />
+                                {errors.state ? <span className="text-danger">{errors.state.message}</span> : null }<br></br>
+                                <label htmlFor="name">Zip Code: </label>
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    onChange={(e) => setZipcode(e.target.value)}
+                                    value={zipcode}
+                                />
+                                {errors.zipcode ? <span className="text-danger">{errors.zipcode.message}</span> : null }<br></br>
+                                <label htmlFor="name">Type: </label>
+                                <select className ="form-control" value={type} name="type" onChange ={(e)=> setType(e.target.value)}>
+                                    <option>Select Rental Home Type</option>
+                                    <option value="Apartment Complex">Apartment Complex</option>
+                                    <option value="Luxury Condos">Luxury Condos</option>
+                                    <option value="Single Family Home">Single Family Home</option>
+                                    <option value="Twin Family Home">Twin Family Home</option>
+                                    <option value="Row Home">Row Home</option>
+                                    <option value="Rancher">Rancher</option>
+                                </select>
+                                {errors.type ? <span className="text-danger">{errors.type.message}</span> : null }<br></br>
+                        </div>
+                    </div>
+                        <br/>
+                        <div className="d-flex justify-content-around w-100">
+                            <button className="btn btn-primary" type="submit">Submit</button>
+                            {/* <Link className="btn btn-danger" to={`/user/${user.id}/dashboard`}>Dashboard</Link> */}
+                        </div>
+                </form>
+            </div>
+        </div>
+    )
+}
+
+export default AddRental
+
+{/* <div className="col">
                     <label className="form-label">Title:</label>
                         <input className ="form-control" type="text" onChange ={(e)=> setTitle(e.target.value)} />
                         {errors.title ? <span className="text-danger">{errors.title.message}</span> : null }<br></br>
@@ -94,12 +196,5 @@ const AddRental = () => {
                     <div>
                         <button className="btn btn-info">Create Rental Home</button>
                         <button className="btn btn-info">Cancel</button>
-                        {/* <Link to={`/user/${user.id}/dashboard`}>Dashboard</Link> */}
-                    </div>
-                </form>
-            </div>
-        </div>
-    )
-}
-
-export default AddRental
+                        <Link to={`/user/${user.id}/dashboard`}>Dashboard</Link>
+                    </div> */}
