@@ -15,7 +15,7 @@ const RentalSchema = new mongoose.Schema(
         },
         owner: {
             type: String,
-            required: [true, 'Street address is required']
+            required: [true, "The owner's name is required!"]
         },
         location: {
             type: String
