@@ -64,3 +64,4 @@ const Rental = mongoose.model('Rental', RentalSchema);
 module.exports = Rental;
 
 //need to export so that we can use it in our frontend 
+//location is for the longtitude and latitude for google maps api
