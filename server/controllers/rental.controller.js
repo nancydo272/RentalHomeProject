@@ -1,4 +1,8 @@
 const Rental = require('../models/rental.model');
+const jwt = require("jsonwebtoken");
+const User = require('../models/user.model');
+require('dotenv').config();
+const SECRET = process.env.JWT_KEY;
 
     module.exports = {
     getRentals: (req, res) => {
