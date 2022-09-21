@@ -4,27 +4,25 @@ const User = require('../models/user.model');
 require('dotenv').config();
 const SECRET = process.env.JWT_KEY;
 
-    module.exports = {
+module.exports = {
     getRentals: (req, res) => {
         Rental.find({})
-        .then((allRentals) => {
-            console.log(allRentals);
-            res.json(allRentals);
-        })
-        .catch((err) =>
-            res.status(400).json({ message: 'something went wrong with findAll', error: err.errors }),
-        );
+            .populate('agent', 'email', 'firstName' , 'lastName')
+            .then((allRentals) => {res.json(allRentals);})
+            .catch((err) =>
+                res.status(400).json({ message: 'something went wrong with findAll', error: err.errors }),
+            );
     },
     createRental: (req, res) => {
-        console.log(req.body);
-        Rental.create(req.body)
-        .then((newRental) => {
-            console.log(newRental);
-            res.json(newRental);
-        })
-        .catch((err) =>
-            res.status(400).json({ message: 'something went wrong with create', error: err.errors }),
-        );
+        const user = jwt.verify(req.cookies.userToken, SECRET);
+        Rental.create({...req.body, agent: user._id})
+            .then((newRental) => {
+                console.log(newRental);
+                res.json(newRental);
+            })
+            .catch((err) =>
+                res.status(400).json({ message: 'something went wrong with create', error: err.errors }),
+            );
     },
     getRentalById: (req, res) => {
         Rental.findOne({ _id: req.params.id })
@@ -45,6 +43,16 @@ const SECRET = process.env.JWT_KEY;
         .catch((err) =>
             res.status(400).json({ message: 'something went wrong with delete', error: err.errors }),
         );
+    },
+    //agentlist connect  rental to agent 
+    AgentList: (req, res) => {
+        //change User to 
+        User.findOne({ _id: req.params.id}).then((user) => {
+            Rental.find({ agent: user._id })
+                    .populate('agent', 'email firstName lastName')
+                    .then((rentals) => {res.json(rentals);})
+                    .catch((err) => {res.status(401).json({message:  "agent listing controller problem", error: err});});
+        });
     },
     updateRental: (req, res) => {
         Rental.updateOne({ _id: req.params.id }, req.body, { new: true, runValidators: true })
