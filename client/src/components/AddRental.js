@@ -23,7 +23,7 @@ const AddRental = () => {
     //define submitHandler
     const submitHandler = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:8000/api/rentals/create', {
+        axios.post(`http://localhost:8000/api/rentals/create`,{
             title, 
             streetAddress, 
             owner, 
@@ -34,10 +34,10 @@ const AddRental = () => {
             state, 
             zipcode,
             type
-        })
+        },{withCredentials:true})
         .then((res)=>{
             console.log(res)
-            navigate('/user/:id/dashboard')
+            navigate('/rentals')
         }).catch((err)=>{
             console.log(err)
             setErrors(err.response.data.error)

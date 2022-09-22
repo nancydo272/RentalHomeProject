@@ -26,13 +26,12 @@ module.exports = {
     },
     getRentalById: (req, res) => {
         Rental.findOne({ _id: req.params.id })
-        .then((rental) => {
-            console.log(rental);
-            res.json(rental);
-        })
-        .catch((err) =>
-            res.status(400).json({ message: 'something went wrong with find one', error: err.errors }),
-        );
+            .then((rental) => {
+                res.json(rental);
+            })
+            .catch((err) =>
+                res.status(400).json({ message: 'something went wrong with find one', error: err.errors }),
+            );
     },
     deleteRental: (req, res) => {
         Rental.deleteOne({ _id: req.params.id })
@@ -48,7 +47,6 @@ module.exports = {
     AgentList: (req, res) => {
         //change User to 
         User.findOne({ _id: req.params.id}).then((user) => {
-        // User.findByIdAndUpdate(req.params.id).then((user) => {
             Rental.find({ agent: user._id })
                     .populate('agent', 'email firstName lastName')
                     .then((rentals) => {res.json(rentals);})

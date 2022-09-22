@@ -55,7 +55,7 @@ const EditRental = () => {
         })
         .then((res)=>{
             console.log(res)
-            // navigate('/user/${user.id}/dashboard')
+            navigate('/rentals')
         }).catch((err)=>{
             console.log(err)
             setErrors(err.response.data.error)

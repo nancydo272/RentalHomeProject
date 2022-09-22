@@ -21,7 +21,7 @@ const Login = ({isLoggedin, setIsLoggedIn}) => {
         axios.post('http://localhost:8000/login',user,{withCredentials:true})
         .then((res)=>{
             console.log(res)
-            navigate('/user/:id/dashboard')
+            navigate("/rentals")
         })
         .catch(err=> {
             setValErrors(err.response.data)

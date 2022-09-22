@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { NavLink } from 'react-router-dom';
+import { NavLink , Link} from 'react-router-dom';
 
 const NavBar = ({isLoggedin}) => {
     const [user, setUser] = useState();
@@ -23,23 +23,31 @@ const NavBar = ({isLoggedin}) => {
             .then((res) => {Cookies.remove('userToken');setUser(null);})
             .catch((err) => console.log('Logout Failed', err));
     };
-    return (
+    return ( // this is the nav bar when. When login it'll display user firstname
+            //line 26-38 is when user login. Line 40-46 is when the user is log out
+            // You can add link to register to login , to agentlisting 
         <div className="container">
             <header>
                 <div style={{display: 'flex',justifyContent: 'space-around',}}>
                     {user ? (
                         <div>
-                            <p> Welcome back {user.firstName}</p>    
-                            <button><buttom onClick={handleLogout}>Logout</buttom></button>
-                            <NavLink className="nav-link" to="/addRental">
-                                    Created Listing
-                            </NavLink>
+                            <h3> Welcome back Agent {user.firstName}</h3>    
+                            <button onClick={handleLogout}>Logout</button>
+                    
+                            <button><Link to={"/addRental"}>Created Listing</Link></button>
+                            <button><Link to={"/rentals"}>Home</Link></button>
+                            <button><Link to={"/api/agent/" + user._id}>Dashboard</Link></button>
                         </div>
                     ) : (
                         <div>
                             <button>
                                 <NavLink className="nav-link" to="/login">
                                     Login
+                                </NavLink>
+                            </button>
+                            <button>
+                                <NavLink className="nav-link" to="/register">
+                                    register
                                 </NavLink>
                             </button>
                         </div>
