@@ -6,21 +6,26 @@ import EditRental from './components/EditRental';
 import Login from './components/Login'; 
 import Register from './components/Register'; 
 import ViewRental from './components/ViewRental'; 
+import {useState} from 'react';
+import NavBar from './components/NavBar'; 
+
 // import Map from './components/Map'; --> if we have time
 
 function App() {
+  const[isLoggedin, setIsLoggedIn] = useState(false);
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path ="/user/:id/dashboard" element ={<Dashboard /> } />
-          <Route path="/rental/:id" element ={<ViewRental />}/>
-          <Route path ="/addRental" element={<AddRental />} />
-          <Route path="/editRental/:id" element ={<EditRental />}/>
-          <Route path ="/register" element={<Register />} />
-          <Route path ="/login" element={<Login />} />
-        </Routes>
+        <NavBar isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedIn}/>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path ="/user/:id/dashboard" element ={<Dashboard /> } />
+            <Route path="/api/rentals" element ={<ViewRental />}/>
+            <Route path ="/addRental" element={<AddRental />} />
+            <Route path="/editRental/:id" element ={<EditRental />}/>
+            <Route path ="/register" element={<Register setIsLoggedIn={setIsLoggedIn}/>} />
+            <Route path ="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>} />
+          </Routes>
       </BrowserRouter>
     </div>
   );

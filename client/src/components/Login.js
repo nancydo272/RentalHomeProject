@@ -19,17 +19,6 @@ const Login = ({isLoggedin, setIsLoggedIn}) => {
     const submitHandler = (e) => {
         e.preventDefault()
         axios.post('http://localhost:8000/login',user,{withCredentials:true})
-<<<<<<< HEAD
-            .then((res)=>{
-                console.log(res);
-                setIsLoggedIn(true);
-                navigate('/rental/:id')
-            }
-            .catch(err=> {
-                setValErrors(err.response.data)
-                console.log(err)
-            })
-=======
         .then((res)=>{
             console.log(res)
             navigate('/user/:id/dashboard')
@@ -38,7 +27,6 @@ const Login = ({isLoggedin, setIsLoggedIn}) => {
             setValErrors(err.response.data)
             console.log(err)
         })
->>>>>>> main
     }; 
 
     return (

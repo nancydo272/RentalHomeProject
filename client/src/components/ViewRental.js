@@ -1,8 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-
 
 const ViewRental = () => {
     const [rentals, setRentals] = useState([]);
@@ -24,12 +22,6 @@ const ViewRental = () => {
                     <p>zipcode: {rental.zipcode}</p>
                     <p>state: {rental.state}</p>
                     <p>type: {rental.type}</p>
-                    <Link to={`/agent/${rental.agent.firstName}`}>
-                        list By: {rental.agent.firstName} {rental.agent.lastName}
-                    </Link>
-                    <Link to={`/rental/${rental._id}`}>
-                        Detail
-                    </Link>
                 </div>
             ))}
         </div>
