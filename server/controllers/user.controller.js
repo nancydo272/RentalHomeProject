@@ -56,14 +56,7 @@ const login = async(req,res)=> {
                 console.log('TOKEN::' , userToken);
                 res
                     .cookie('userToken', userToken,{expires: new Date(Date.now() + 100000),})
-                    .json({
-                        successMessage: 'User login successfully', 
-                        user: {
-                            email:userFile.email,
-                            firstName:userFile.firstName,
-                            lastName:userFile.lastName
-                        },
-                    });
+                    .json({successMessage: 'User login successfully', user: {email:userFile.email,},});
             }
         }   catch(e){
             console.log("login error", e)
