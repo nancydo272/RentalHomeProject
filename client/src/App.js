@@ -20,15 +20,14 @@ function App() {
         <NavBar isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedIn}/>
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/map" element={<Map />} />
-
-            <Route path ="/api/agent/:id" element ={<Dashboard /> } />
+            <Route path ="/register" element={<Register setIsLoggedIn={setIsLoggedIn}/>} />
+            <Route path ="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>} />
+            <Route path ="/agent/:id" element ={<Dashboard /> } />
             <Route path="/rentals" element ={<ViewRental />}/>
             <Route path="/viewOne/:id" element ={<ViewOne />}/>
             <Route path ="/addRental" element={<AddRental />} />
             <Route path="/editRental/:id" element ={<EditRental />}/>
-            <Route path ="/register" element={<Register setIsLoggedIn={setIsLoggedIn}/>} />
-            <Route path ="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>} />
+            <Route path="/map" element={<Map />} />
           </Routes>
       </BrowserRouter>
     </div>

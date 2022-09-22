@@ -8,12 +8,20 @@ const Dashboard = () => {
     const [rentalList, setRentalList] = useState([]); 
     const { id } = useParams(); 
     useEffect(()=>{
-        axios.get(`http://localhost:8000/api/agent/${id}`,{ withCredentials: true })
+        axios.get(`http://localhost:8000/agent/${id}`,{ withCredentials: true })
             .then((res)=>{console.log(res.data);setRentalList(res.data)})
             .catch((err)=>{
                 console.log(err)
             })
     }, [])
+
+    // useEffect(()=>{
+    //     axios.get(`http://localhost:8000/api/rentals`,{ withCredentials: true })
+    //         .then((res)=>{console.log(res.data);setRentalList(res.data)})
+    //         .catch((err)=>{
+    //             console.log(err)
+    //         })
+    // }, [])
     
     const deleteHandler =(id)=>{
         axios.delete(`http://localhost:8000/api/rentals/${id}`)
