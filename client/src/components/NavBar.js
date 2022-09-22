@@ -36,7 +36,7 @@ const NavBar = ({isLoggedin}) => {
                     
                             <button><Link to={"/addRental"}>Created Listing</Link></button>
                             <button><Link to={"/rentals"}>Home</Link></button>
-                            <button><Link to={"/api/agent/" + user._id}>Dashboard</Link></button>
+                            <button><Link to={"/agent/" + user._id}>Dashboard</Link></button>
                         </div>
                     ) : (
                         <div>
