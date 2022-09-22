@@ -46,15 +46,12 @@ module.exports = {
     //agentlist connect  rental to agent 
     AgentList: (req, res) => {
         //change User to 
-        const {id } = req.params;
-        if (id.match(/^[0-9a-fA-F]{24}$/)) {
-            User.findById({ _id: req.params.id}).then((user) => {
-                Rental.find({ agent: user._id })
-                        .populate('agent', 'email firstName lastName')
-                        .then((rentals) => {res.json(rentals);})
-                        .catch((err) => {res.status(401).json({message:  "agent listing controller problem", error: err});});
-            });
-        }
+        User.findOne({ _id: req.params.id}).then((user) => {
+            Rental.find({ agent: user._id })
+                    .populate('agent', 'email firstName lastName')
+                    .then((rentals) => {res.json(rentals);})
+                    .catch((err) => {res.status(401).json({message:  "agent listing controller problem", error: err});});
+        });
     },
     updateRental: (req, res) => {
         Rental.updateOne({ _id: req.params.id }, req.body, { new: true, runValidators: true })

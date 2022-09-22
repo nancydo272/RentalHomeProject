@@ -22,7 +22,7 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path ="/register" element={<Register setIsLoggedIn={setIsLoggedIn}/>} />
             <Route path ="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>} />
-            <Route path ="/agent/:id" element ={<Dashboard /> } />
+            <Route path ="/api/agent/:id" element ={<Dashboard /> } />
             <Route path="/rentals" element ={<ViewRental />}/>
             <Route path="/viewOne/:id" element ={<ViewOne />}/>
             <Route path ="/addRental" element={<AddRental />} />

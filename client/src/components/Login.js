@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
-import {useNavigate, useParams} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
 const Login = ({isLoggedin, setIsLoggedIn}) => {
 
-    const { id } = useParams();
     const navigate= useNavigate()
     const [valErrors, setValErrors] = useState('')
     const [user,setUser] = useState({
         email:'',
         password:'',
-    
     })
     const handleChange = (e) => {
         setUser ({
@@ -20,28 +18,16 @@ const Login = ({isLoggedin, setIsLoggedIn}) => {
     };
     const submitHandler = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:8000/login`,
-        user,
-        {withCredentials:true})
+        axios.post('http://localhost:8000/login',user,{withCredentials:true})
         .then((res)=>{
             console.log(res)
-            navigate("/agent/:id")
+            navigate("/rentals")
         })
         .catch(err=> {
             setValErrors(err.response.data)
             console.log(err)
         })
     }; 
-
-    useEffect(()=>{
-        axios.get(`http://localhost:8000/agent/${id}`,{ withCredentials: true })
-            .then((res)=>{
-                console.log(res.data);
-                setUser(res.data)})
-            .catch((err)=>{
-                console.log(err)
-            })
-    }, [])
 
     return (
         <div className='font'>
