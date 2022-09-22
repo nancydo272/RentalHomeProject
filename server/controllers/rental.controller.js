@@ -48,6 +48,7 @@ module.exports = {
     AgentList: (req, res) => {
         //change User to 
         User.findOne({ _id: req.params.id}).then((user) => {
+        // User.findByIdAndUpdate(req.params.id).then((user) => {
             Rental.find({ agent: user._id })
                     .populate('agent', 'email firstName lastName')
                     .then((rentals) => {res.json(rentals);})
