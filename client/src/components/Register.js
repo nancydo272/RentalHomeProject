@@ -11,7 +11,7 @@ function Register() {
         confirmPassword:''
     })
     const [ValErrors, setValErrors] = useState({
-        firstname:'',
+        firstName:'',
         lastName:'',
         email: '',
         password: '',
@@ -55,27 +55,27 @@ return(
                 <div>
                     <label className="form-label">First Name:</label>
                     <input className="form-control brcolor" type="text" name="firstName" value={userInfo.firstName} onChange={handleChange}/>
-                    {ValErrors.firstName? <p className='text-danger'>{ValErrors.firstName.message}</p>:""}
+                    {ValErrors.firstName ? <p className='text-danger'>{ValErrors.firstName.message}</p>:""}
                 </div>
                 <div>
                     <label className="form-label">Last Name:</label>
                     <input className="form-control brcolor" type="text" name="lastName" value={userInfo.lastName} onChange={handleChange}/>
-                    {ValErrors.lastName? <p className='text-danger'>{ValErrors.firstName.message}</p>:""}
+                    {ValErrors.lastName ? <p className='text-danger'>{ValErrors.lastName.message}</p>:""}
                 </div>
                 <div>
                     <label className="form-label">Email:</label>
                     <input className="form-control brcolor" type="text" name="email" value={userInfo.email} onChange={handleChange}/>
-                    {ValErrors.email? <p className='text-danger'>{ValErrors.email.message}</p>:""}
+                    {ValErrors.email ? <p className='text-danger'>{ValErrors.email.message}</p>:""}
                 </div>
                 <div>
                     <label className="form-label">Password:</label>
                     <input className="form-control brcolor" type="password" name="password" value={userInfo.password} onChange={handleChange}/>
-                    {ValErrors.password? <p className='text-danger'>{ValErrors.password.message}</p>:""}
+                    {ValErrors.password ? <p className='text-danger'>{ValErrors.password.message}</p>:""}
                 </div>
                 <div>
                     <label className="form-label">Confirm Password:</label>
                     <input className="form-control brcolor" type="password" name="confirmPassword" value={userInfo.confirmPassword} onChange={handleChange}/>
-                    {ValErrors.confirmPassword? <p className='text-danger'>{ValErrors.confirmPassword.message}</p>:""}
+                    {ValErrors.confirmPassword ? <p className='text-danger'>{ValErrors.confirmPassword.message}</p>:""}
                 </div>
                     <button className='btn btn-info'>Register</button>
             </form>
