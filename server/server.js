@@ -3,7 +3,8 @@ const cors = require('cors');
 const express = require('express');
 const app = express();
 const port = process.env.port || 4000;
-// const port = 8000;
+
+//const port = 8000;
 const cookieParser = require("cookie-parser");
 require("./config/mongoose.config");
 require("./config/jwt.config");
