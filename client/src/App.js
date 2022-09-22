@@ -8,6 +8,7 @@ import Register from './components/Register';
 import ViewRental from './components/ViewRental'; 
 import {useState} from 'react';
 import NavBar from './components/NavBar'; 
+import ViewOne from './components/ViewOne'; 
 
 // import Map from './components/Map'; --> if we have time
 
@@ -20,7 +21,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path ="/api/agent/:id" element ={<Dashboard /> } />
-            <Route path="/api/rentals/:id" element ={<ViewRental />}/>
+            <Route path="/rentals" element ={<ViewRental />}/>
+            <Route path="/viewOne/:id" element ={<ViewOne />}/>
             <Route path ="/addRental" element={<AddRental />} />
             <Route path="/editRental/:id" element ={<EditRental />}/>
             <Route path ="/register" element={<Register setIsLoggedIn={setIsLoggedIn}/>} />

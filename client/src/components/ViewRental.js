@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link }    from 'react-router-dom'; 
 
 const ViewRental = () => {
     const [rentals, setRentals] = useState([]);
@@ -22,6 +23,9 @@ const ViewRental = () => {
                     <p>zipcode: {rental.zipcode}</p>
                     <p>state: {rental.state}</p>
                     <p>type: {rental.type}</p>
+                    <Link to={`/viewOne/${rental._id}`}>
+                        Post By: {rental.agent.firstName} 
+                    </Link>
                 </div>
             ))}
         </div>

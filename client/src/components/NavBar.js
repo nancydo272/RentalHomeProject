@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { NavLink } from 'react-router-dom';
+import { NavLink , Link} from 'react-router-dom';
 
 const NavBar = ({isLoggedin}) => {
     const [user, setUser] = useState();
@@ -31,17 +31,23 @@ const NavBar = ({isLoggedin}) => {
                 <div style={{display: 'flex',justifyContent: 'space-around',}}>
                     {user ? (
                         <div>
-                            <p> Welcome back {user.firstName}</p>    
+                            <h3> Welcome back Agent {user.firstName}</h3>    
                             <button onClick={handleLogout}>Logout</button>
-                            <NavLink className="nav-link" to="/addRental">
-                                    Created Listing
-                            </NavLink>
+                    
+                            <button><Link to={"/addRental"}>Created Listing</Link></button>
+                            <button><Link to={"/rentals"}>Home</Link></button>
+                            <button><Link to={"/api/agent/" + user._id}>Dashboard</Link></button>
                         </div>
                     ) : (
                         <div>
                             <button>
                                 <NavLink className="nav-link" to="/login">
                                     Login
+                                </NavLink>
+                            </button>
+                            <button>
+                                <NavLink className="nav-link" to="/register">
+                                    register
                                 </NavLink>
                             </button>
                         </div>

@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from 'react'; 
-import axios from 'axios'; 
-import {useParams, Link} from 'react-router-dom'; 
+import React from 'react'
+import { useParams, Link }    from 'react-router-dom'; 
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const Dashboard = () => {
 
     const [rentalList, setRentalList] = useState([]); 
     const { id } = useParams(); 
     useEffect(()=>{
-        axios.get(`http://localhost:8000/api/agent/${id}`)
-            .then((res)=>{console.log(res.data);
-                setRentalList(res.data)
-            }).catch((err)=>{
+        axios.get(`http://localhost:8000/api/agent/${id}`,{ withCredentials: true })
+            .then((res)=>{console.log(res.data);setRentalList(res.data)})
+            .catch((err)=>{
                 console.log(err)
             })
     }, [])
@@ -36,7 +36,8 @@ const Dashboard = () => {
                         <th>Address</th>
                         <th>Owner</th>
                         <th>Actions</th>
-                    </tr>
+                    </tr>        
+
                     {
                         rentalList.map((rental)=>(
                             <tr>
@@ -45,7 +46,8 @@ const Dashboard = () => {
                                 <td>{rental.owner}</td>
                                 <td>
                                     <div>
-                                        <Link to={`/rental/${rental._id}`}>View</Link>
+                                        <button><Link to={"/editRental/" + rental._id}>Edit</Link></button>
+                                        <button><Link to={"/view/" + rental._id}>View</Link></button>
                                         <button onClick={()=>deleteHandler(rental._id)}>Delete</button>
                                     </div>
                                 </td>
