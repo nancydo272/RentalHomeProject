@@ -47,7 +47,7 @@ const Dashboard = () => {
                                 <td>
                                     <div>
                                         <button><Link to={"/editRental/" + rental._id}>Edit</Link></button>
-                                        <button><Link to={"/view/" + rental._id}>View</Link></button>
+                                        <button><Link to={"/viewOne/" + rental._id}>View</Link></button>
                                         <button onClick={()=>deleteHandler(rental._id)}>Delete</button>
                                     </div>
                                 </td>

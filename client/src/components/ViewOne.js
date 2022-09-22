@@ -11,7 +11,7 @@ const ViewOne = (props) => {
         axios.get(`http://localhost:8000/api/rentals/${id}` )
             .then((res) => {setRentals(res.data);})
             .catch((err) => {console.error("error in get all rentals", err);});
-    }, []);
+    }, [id]);
     return(// this show all the listing of all the rentals available 
         <div className='card'>
             <h3>Title: {rentals.title}</h3>

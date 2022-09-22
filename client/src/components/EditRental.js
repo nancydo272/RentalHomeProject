@@ -37,7 +37,7 @@ const EditRental = () => {
         }).catch((err)=>{
             console.log(err)
         })
-    }, [])
+    }, [id])
 
     const editHandler =(e)=>{
         e.preventDefault()
@@ -55,8 +55,7 @@ const EditRental = () => {
         })
         .then((res)=>{
             console.log(res)
-            navigate("/rentals")
-            // navigate('/user/${user.id}/dashboard')
+            navigate('/user/${user.id}/dashboard')
         }).catch((err)=>{
             console.log(err)
             setErrors(err.response.data.error)
