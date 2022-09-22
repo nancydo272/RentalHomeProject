@@ -1,6 +1,7 @@
 import React from 'react'
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
-
+//http://localhost:3000/map a map will show up with this link .
+// https://react-google-maps-api-docs.netlify.app/ copy this link to finish this map if you can 
 const containerStyle = {
     width: '400px',
     height: '400px'
