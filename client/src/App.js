@@ -19,8 +19,8 @@ function App() {
         <NavBar isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedIn}/>
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path ="/user/:id/dashboard" element ={<Dashboard /> } />
-            <Route path="/api/rentals" element ={<ViewRental />}/>
+            <Route path ="/api/agent/:id" element ={<Dashboard /> } />
+            <Route path="/api/rentals/:id" element ={<ViewRental />}/>
             <Route path ="/addRental" element={<AddRental />} />
             <Route path="/editRental/:id" element ={<EditRental />}/>
             <Route path ="/register" element={<Register setIsLoggedIn={setIsLoggedIn}/>} />

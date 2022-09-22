@@ -5,17 +5,14 @@ import {useParams, Link} from 'react-router-dom';
 const Dashboard = () => {
 
     const [rentalList, setRentalList] = useState([]); 
-    const [agent, setAgent] = useState({}); 
-    const {id} = useParams(); 
-
+    const { id } = useParams(); 
     useEffect(()=>{
         axios.get(`http://localhost:8000/api/agent/${id}`)
-        .then((res)=>{
-            setRentalList(res.data)
-            setAgent(res.data)
-        }).catch((err)=>{
-            console.log(err)
-        })
+            .then((res)=>{console.log(res.data);
+                setRentalList(res.data)
+            }).catch((err)=>{
+                console.log(err)
+            })
     }, [])
     
     const deleteHandler =(id)=>{
@@ -32,10 +29,6 @@ const Dashboard = () => {
 
     return (
         <div>
-            <div>
-                <h1>Welcome, ${agent.firstName}! </h1>
-                <Link to="/logout">Logout</Link>
-            </div>
             <div>
                 <table>
                     <tr>

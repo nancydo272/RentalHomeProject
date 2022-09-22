@@ -9,7 +9,7 @@ const ViewRental = () => {
             .then((res) => {setRentals(res.data);})
             .catch((err) => {console.error("error in get all rentals", err);});
     }, []);
-    return(
+    return(// this show all the listing of all the rentals available 
         <div style={{textAlign: 'center'}} className="card">
             {rentals.map((rental) => (
                 <div key={rental._id } className="card">
