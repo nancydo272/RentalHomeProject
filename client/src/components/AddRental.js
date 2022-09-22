@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios'; 
 import { useNavigate} from 'react-router-dom'; 
+import React from "react";
 
 const AddRental = () => {
     
@@ -152,7 +153,7 @@ const AddRental = () => {
 
 export default AddRental
 
-{/* <div className="col">
+/* <div className="col">
                     <label className="form-label">Title:</label>
                         <input className ="form-control" type="text" onChange ={(e)=> setTitle(e.target.value)} />
                         {errors.title ? <span className="text-danger">{errors.title.message}</span> : null }<br></br>
@@ -197,4 +198,4 @@ export default AddRental
                         <button className="btn btn-info">Create Rental Home</button>
                         <button className="btn btn-info">Cancel</button>
                         <Link to={`/user/${user.id}/dashboard`}>Dashboard</Link>
-                    </div> */}
+                    </div> */

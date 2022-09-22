@@ -14,8 +14,8 @@ const Login = ({isLoggedin, setIsLoggedIn}) => {
     const handleChange = (e) => {
         setUser ({
             ...user, [e.target.name]:e.target.value,
-        })
-    }
+        });
+    };
     const submitHandler = (e) => {
         e.preventDefault()
         axios.post('http://localhost:8000/login',user,{withCredentials:true})

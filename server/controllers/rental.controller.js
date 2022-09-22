@@ -7,7 +7,7 @@ const SECRET = process.env.JWT_KEY;
 module.exports = {
     getRentals: (req, res) => {
         Rental.find({})
-            .populate('agent', 'email', 'firstName' , 'lastName')
+            .populate('agent', 'email firstName lastName')
             .then((allRentals) => {res.json(allRentals);})
             .catch((err) =>
                 res.status(400).json({ message: 'something went wrong with findAll', error: err.errors }),
