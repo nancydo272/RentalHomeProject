@@ -30,13 +30,15 @@ const Dashboard = () => {
     return (
         <div>
             <div>
-                <table>
-                    <tr>
-                        <th>Rental Type</th>
-                        <th>Address</th>
-                        <th>Owner</th>
-                        <th>Actions</th>
-                    </tr>        
+                <table className="table">
+                    <thead className ="thead-dark">
+                        <tr>
+                            <th>Rental Type</th>
+                            <th>Address</th>
+                            <th>Owner</th>
+                            <th>Actions</th>
+                        </tr>    
+                    </thead> 
 
                     {
                         rentalList.map((rental)=>(
