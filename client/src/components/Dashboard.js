@@ -41,7 +41,7 @@ const Dashboard = () => {
                     <tbody>
                     {
                         rentalList.map((rental)=>(
-                            <tr key={rental.id}>
+                            <tr  key={rental._id}>
                                 <td>{rental.type}</td>
                                 <td>{rental.streetAddress}</td>
                                 <td>{rental.owner}</td>

@@ -48,7 +48,7 @@ function Register() {
             })
     };
 return(
-        <div className='font'>
+        <div className='col-4 mx-auto'>
             <h4 className='my-4 org'>Register Here:</h4>
             <form onSubmit={submitHandler} className="form-w mx-auto">
                 <div>

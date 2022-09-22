@@ -5,11 +5,11 @@ import Dashboard from './components/Dashboard';
 import EditRental from './components/EditRental'; 
 import Login from './components/Login'; 
 import Register from './components/Register'; 
-import ViewRental from './components/ViewRental'; 
+// import ViewRental from './components/ViewRental'; 
 import {useState} from 'react';
 import NavBar from './components/NavBar'; 
 import ViewOne from './components/ViewOne'; 
-import Map from './components/Map';
+// import Map from './components/Map';
 // import Map from './components/Map'; --> if we have time
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
             <Route path ="/register" element={<Register setIsLoggedIn={setIsLoggedIn}/>} />
             <Route path ="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>} />
             <Route path ="/api/agent/:id" element ={<Dashboard /> } />
-            <Route path="/rentals" element ={<ViewRental />}/>
+            {/* <Route path="/rentals" element ={<ViewRental />}/> */}
             <Route path="/viewOne/:id" element ={<ViewOne />}/>
             <Route path ="/addRental" element={<AddRental />} />
             <Route path="/editRental/:id" element ={<EditRental />}/>

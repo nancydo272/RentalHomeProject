@@ -28,15 +28,14 @@ const NavBar = ({isLoggedin}) => {
             // You can add link to register to login , to agentlisting 
         <div className="container">
             <header>
-                <div style={{display: 'flex',justifyContent: 'space-around',}}>
+                <div>
                     {user ? (
                         <div>
-                            <h3> Welcome back Agent {user.firstName}</h3>    
-                            <button onClick={handleLogout}>Logout</button>
-                    
-                            <button><Link to={"/addRental"}>Created Listing</Link></button>
-                            <button><Link to={"/rentals"}>Home</Link></button>
-                            <button><Link to={"/api/agent/" + user._id}>Dashboard</Link></button>
+                            <h3> Welcome Back Agent, {user.firstName}!</h3> 
+                            <div className="d-flex justify-content-between">
+                                <button><Link to={"/api/agent/" + user._id}>Dashboard</Link></button>   
+                                <button onClick={handleLogout}>Logout</button>
+                            </div>
                         </div>
                     ) : (
                         <div>
@@ -47,7 +46,7 @@ const NavBar = ({isLoggedin}) => {
                             </button>
                             <button>
                                 <NavLink className="nav-link" to="/register">
-                                    register
+                                    Register
                                 </NavLink>
                             </button>
                         </div>
