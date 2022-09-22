@@ -27,7 +27,7 @@ function App() {
             <Route path="/viewOne/:id" element ={<ViewOne />}/>
             <Route path ="/addRental" element={<AddRental />} />
             <Route path="/editRental/:id" element ={<EditRental />}/>
-            <Route path="/map" element={<Map />} />
+            {/* <Route path="/map" element={<Map />} /> */}
           </Routes>
       </BrowserRouter>
     </div>

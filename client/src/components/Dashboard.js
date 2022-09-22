@@ -29,7 +29,6 @@ const Dashboard = () => {
 
     return (
         <div>
-            <div>
                 <table className="table">
                     <thead className ="thead-dark">
                         <tr>
@@ -39,10 +38,10 @@ const Dashboard = () => {
                             <th>Actions</th>
                         </tr>    
                     </thead> 
-
+                    <tbody>
                     {
                         rentalList.map((rental)=>(
-                            <tr>
+                            <tr key={rental.id}>
                                 <td>{rental.type}</td>
                                 <td>{rental.streetAddress}</td>
                                 <td>{rental.owner}</td>
@@ -56,9 +55,9 @@ const Dashboard = () => {
                             </tr>    
                         ))
                     }
+                    </tbody>
                 </table>
                 <Link to ={'/addRental'}>Add A New Rental</Link>
-            </div>
         </div>
     )
 }

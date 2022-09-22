@@ -37,7 +37,7 @@ const AddRental = () => {
         },{withCredentials:true})
         .then((res)=>{
             console.log(res)
-            navigate('/api/agent/:id')
+            navigate(`/api/agent/${res.data.user._id}`)
         }).catch((err)=>{
             console.log(err)
             setErrors(err.response.data.error)

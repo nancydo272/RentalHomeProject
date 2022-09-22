@@ -18,10 +18,10 @@ const Login = ({isLoggedin, setIsLoggedIn}) => {
     };
     const submitHandler = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:8000/login',user,{withCredentials:true})
+        axios.post(`http://localhost:8000/login`,user,{withCredentials:true})
         .then((res)=>{
             console.log(res)
-            navigate("/api/agent/:id")
+            navigate(`/api/agent/${res.data.user._id}`)
         })
         .catch(err=> {
             setValErrors(err.response.data)
