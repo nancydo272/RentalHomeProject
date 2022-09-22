@@ -9,7 +9,7 @@ import ViewRental from './components/ViewRental';
 import {useState} from 'react';
 import NavBar from './components/NavBar'; 
 import ViewOne from './components/ViewOne'; 
-
+import Map from './components/Map';
 // import Map from './components/Map'; --> if we have time
 
 function App() {
@@ -20,6 +20,8 @@ function App() {
         <NavBar isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedIn}/>
           <Routes>
             <Route path="/" element={<Login />} />
+            <Route path="/map" element={<Map />} />
+
             <Route path ="/api/agent/:id" element ={<Dashboard /> } />
             <Route path="/rentals" element ={<ViewRental />}/>
             <Route path="/viewOne/:id" element ={<ViewOne />}/>
