@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const Login = ({isLoggedin, setIsLoggedIn}) => {
 
     const navigate= useNavigate()
-
+    const [valErrors, setValErrors] = useState('')
     const [user,setUser] = useState({
         email:'',
         password:'',
@@ -18,10 +18,14 @@ const Login = ({isLoggedin, setIsLoggedIn}) => {
     }
     const submitHandler = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:8000/Login%27',user,{withCredentials})
+        axios.post('http://localhost:8000/login',user,{withCredentials:true})
         .then((res)=>{
-            console.log(res.data)
+            console.log(res)
             navigate('/')
+        })
+        .catch(err=> {
+            setValErrors(err.response.data)
+            console.log(err)
         })
     }; 
 
@@ -31,11 +35,12 @@ const Login = ({isLoggedin, setIsLoggedIn}) => {
             <form onSubmit={submitHandler} className='form-w mx-auto'>
                 <div>
                     <label>Email:</label>
-                    <input className='form control brcolor' type="text" name="username" value={user.email} onChange={handleChange}/>
+                    <input className='form control brcolor' type="text" name="email" value={user.email} onChange={handleChange}/>
                 </div>
                 <div>
                     <label>Password:</label>
-                    <input  className='form control brcolor' type="text" name="username" value={user.password} onChange={handleChange}/>
+                    <input  className='form control brcolor' type="password" name="password" value={user.password} onChange={handleChange}/>
+                    {valErrors? <p className='text-danger'>{valErrors.message}</p>:""}
                 </div>
                     <button className='btn btn-secondary'>Login</button>
             </form>
