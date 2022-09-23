@@ -49,7 +49,7 @@ function Register() {
     };
 return(
         <div className='col-4 mx-auto'>
-            <h4 className="regHeader">Registration:</h4>
+            <h4 className="regHeader">Registration</h4>
             <form onSubmit={submitHandler} className="form-w mx-auto">
                 <div>
                     <label className="form-label">First Name:</label>
