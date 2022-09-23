@@ -30,7 +30,7 @@ const Dashboard = () => {
     return (
         <div>
                 <table className="table">
-                    <thead className ="thead-dark">
+                    <thead>
                         <tr>
                             <th>Rental Type</th>
                             <th>Address</th>
@@ -47,9 +47,9 @@ const Dashboard = () => {
                                 <td>{rental.owner}</td>
                                 <td>
                                     <div>
-                                        <button><Link to={"/editRental/" + rental._id}>Edit</Link></button>
-                                        <button><Link to={"/viewOne/" + rental._id}>View</Link></button>
-                                        <button onClick={()=>deleteHandler(rental._id)}>Delete</button>
+                                        <Link className="navbuttons p-2 text-decoration-none" to={"/editRental/" + rental._id}>Edit</Link>
+                                        <Link className="navbuttons p-2 text-decoration-none" to={"/viewOne/" + rental._id}>View</Link>
+                                        <button className="navbuttons p-1" onClick={()=>deleteHandler(rental._id)}>Delete</button>
                                     </div>
                                 </td>
                             </tr>    
@@ -57,7 +57,7 @@ const Dashboard = () => {
                     }
                     </tbody>
                 </table>
-                <Link to ={'/addRental'}>Add A New Rental</Link>
+                <Link className="navbuttons p-2 text-decoration-none" to ={'/addRental'}>Add A New Rental</Link>
         </div>
     )
 }

@@ -14,7 +14,7 @@ const ViewOne = (props) => {
     }, [id]);
     return(// this show all the listing of all the rentals available 
         <div className='card'>
-            <h3>Title: {rentals.title}</h3>
+            <h3 className="addHeader">Title: {rentals.title}</h3>
             <p>streetAddress: {rentals.description}</p>
             <p>owner: {rentals.owner}</p>
             <p>location: {rentals.location}</p>

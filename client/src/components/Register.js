@@ -49,7 +49,7 @@ function Register() {
     };
 return(
         <div className='col-4 mx-auto'>
-            <h4 className='my-4 org'>Register Here:</h4>
+            <h4 className="regHeader">Registration:</h4>
             <form onSubmit={submitHandler} className="form-w mx-auto">
                 <div>
                     <label className="form-label">First Name:</label>
@@ -76,7 +76,7 @@ return(
                     <input className="form-control brcolor" type="password" name="confirmPassword" value={userInfo.confirmPassword} onChange={handleChange}/>
                     {ValErrors.confirmPassword ? <p className='text-danger'>{ValErrors.confirmPassword.message}</p>:""}
                 </div>
-                    <button className='btn btn-info'>Register</button>
+                    <button className="navbuttons p-2">Register New User</button>
             </form>
         </div>
     )

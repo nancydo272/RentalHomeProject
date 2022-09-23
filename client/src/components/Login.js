@@ -30,19 +30,19 @@ const Login = ({isLoggedin, setIsLoggedIn}) => {
     }; 
 
     return (
-        <div className='font'>
-            <h4 className='my-4 org'>Login Here:</h4>
+        <div className='col-4 mx-auto'>
+            <h4 className='regHeader'>Login Here</h4>
             <form onSubmit={submitHandler} className='form-w mx-auto'>
                 <div>
-                    <label>Email:</label>
-                    <input className='form control brcolor' type="text" name="email" value={user.email} onChange={handleChange}/>
+                    <label className="form-label">Email:</label>
+                    <input className='form-control brcolor' type="text" name="email" value={user.email} onChange={handleChange}/>
                 </div>
                 <div>
-                    <label>Password:</label>
-                    <input  className='form control brcolor' type="password" name="password" value={user.password} onChange={handleChange}/>
+                    <label className="form-label">Password:</label>
+                    <input  className='form-control brcolor' type="password" name="password" value={user.password} onChange={handleChange}/>
                     {valErrors? <p className='text-danger'>{valErrors.message}</p>:""}
                 </div>
-                    <button className='btn btn-secondary'>Login</button>
+                    <button className='navbuttons p-2'>Login</button>
             </form>
             {/* <Link to={/register}><button className='text-reset btn mt-3'>Register here!</button></Link> */}
         </div>

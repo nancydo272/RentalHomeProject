@@ -47,7 +47,7 @@ const AddRental = () => {
     return (
         <div>
             <div>
-                <h1>Add Rental Home</h1>
+                <h1 className="addHeader">Add Rental Home</h1>
                 {/* <Link to={`/user/${user.id}/dashboard`}>Dashboard</Link> */}
             </div>
             <div className="col-4 mx-auto">
@@ -142,7 +142,7 @@ const AddRental = () => {
                     </div>
                         <br/>
                         <div className="d-flex justify-content-around w-100">
-                            <button className="btn btn-primary" type="submit">Submit</button>
+                            <button className="navbuttons" type="submit">Submit</button>
                         </div>
                 </form>
             </div>

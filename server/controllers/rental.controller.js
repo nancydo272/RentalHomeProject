@@ -57,7 +57,7 @@ module.exports = {
     // }
     },
     updateRental: (req, res) => {
-        Rental.updateOne({ _id: req.params.id }, req.body, { new: true, runValidators: true })
+        Rental.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
         .then((rental) => {
             console.log(rental);
             res.json(rental);

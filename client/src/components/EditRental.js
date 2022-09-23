@@ -55,7 +55,7 @@ const EditRental = () => {
         })
         .then((res)=>{
             console.log(res)
-            navigate('/rentals')
+            navigate(`/api/agent/${res.data.agent}`)
         }).catch((err)=>{
             console.log(err)
             setErrors(err.response.data.error)
@@ -160,7 +160,7 @@ const EditRental = () => {
                     </div>
                         <br/>
                         <div className="d-flex justify-content-around w-100">
-                            <button className="btn btn-primary" type="submit">Update</button>
+                            <button className="navbuttons" type="submit">Update</button>
                             {/* <Link className="btn btn-danger" to={`/user/${user.id}/dashboard`}>Dashboard</Link> */}
                         </div>
                 </form>

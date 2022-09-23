@@ -31,21 +31,21 @@ const NavBar = ({isLoggedin}) => {
                 <div>
                     {user ? (
                         <div>
-                            <h3> Welcome Back Agent, {user.firstName}!</h3> 
+                            <h3 className="regHeader"> Welcome Back Agent, {user.firstName}!</h3> 
                             <div className="d-flex justify-content-between">
-                                <button><Link to={"/api/agent/" + user._id}>Dashboard</Link></button>   
-                                <button onClick={handleLogout}>Logout</button>
+                                <button className="navbuttons"><Link className ="text-white text-decoration-none" to={"/api/agent/" + user._id}>Dashboard</Link></button>   
+                                <button className="navbuttons"onClick={handleLogout}>Logout</button>
                             </div>
                         </div>
                     ) : (
                         <div>
-                            <button>
-                                <NavLink className="nav-link" to="/login">
+                            <button className="navbuttons">
+                                <NavLink className="nav-link text-white" to="/login">
                                     Login
                                 </NavLink>
                             </button>
-                            <button>
-                                <NavLink className="nav-link" to="/register">
+                            <button className="navbuttons">
+                                <NavLink className="nav-link text-white" to="/register">
                                     Register
                                 </NavLink>
                             </button>
