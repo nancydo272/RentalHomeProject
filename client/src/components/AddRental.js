@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState} from 'react';
 import axios from 'axios'; 
 import { useNavigate} from 'react-router-dom'; 
 import React from "react";
 
 const AddRental = () => {
-    
+
     const [title, setTitle] = useState(''); 
     const [streetAddress, setStreetAddress] = useState(''); 
     const [owner, setOwner] = useState(''); 

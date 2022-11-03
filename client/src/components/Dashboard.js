@@ -1,11 +1,14 @@
 import React from 'react'
-import { useParams, Link }    from 'react-router-dom'; 
+import { useParams, Link, NavLink }    from 'react-router-dom'; 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
+import jwtDecode from 'jwt-decode';
 
-const Dashboard = () => {
+const Dashboard = ({isLoggedin}) => {
 
     const [rentalList, setRentalList] = useState([]); 
+    const [user, setUser] = useState();
     const { id } = useParams(); 
     useEffect(()=>{
         axios.get(`http://localhost:8000/api/agent/${id}`,{ withCredentials: true })
@@ -27,8 +30,47 @@ const Dashboard = () => {
         })
     }
 
+    useEffect(() => {
+        const userToken = Cookies.get('userToken');
+        console.log('USER TOKEN', userToken);
+        if (userToken) {
+            const user = jwtDecode(userToken);
+            console.log('User Login', user);
+            setUser(user);
+            console.log('TOKEN', userToken);
+        }
+    }, [isLoggedin]);
+    const handleLogout = () => {
+        axios
+            .post('http://localhost:8000/logout', {}, { withCredentials: true, },)
+            .then((res) => {Cookies.remove('userToken');setUser(null);})
+            .catch((err) => console.log('Logout Failed', err));
+    };
     return (
         <div>
+            <div>
+            {user ? (
+                        <div>
+                            <h3 className="regHeader"> Welcome Back Agent, {user.firstName}!</h3> 
+                            <div className="d-flex justify-content-between">   
+                                <button className="navbuttons"onClick={handleLogout}>Logout</button>
+                            </div>
+                        </div>
+                    ) : (
+                        <div>
+                            <button className="navbuttons">
+                                <NavLink className="nav-link text-white" to="/login">
+                                    Login
+                                </NavLink>
+                            </button>
+                            <button className="navbuttons">
+                                <NavLink className="nav-link text-white" to="/register">
+                                    Register
+                                </NavLink>
+                            </button>
+                        </div>
+                    )}
+            </div>
                 <table className="table">
                     <thead>
                         <tr>

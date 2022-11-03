@@ -17,12 +17,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedIn}/>
+        {/* <NavBar isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedIn}/> */}
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path ="/register" element={<Register setIsLoggedIn={setIsLoggedIn}/>} />
             <Route path ="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>} />
-            <Route path ="/api/agent/:id" element ={<Dashboard /> } />
+            <Route path ="/api/agent/:id" isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedIn} element ={<Dashboard /> } />
             {/* <Route path="/rentals" element ={<ViewRental />}/> */}
             <Route path="/viewOne/:id" element ={<ViewOne />}/>
             <Route path ="/addRental" element={<AddRental />} />
