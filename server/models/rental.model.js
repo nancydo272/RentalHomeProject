@@ -57,7 +57,7 @@ const RentalSchema = new mongoose.Schema(
         },
         // this will connect rental model to user model 
         agent: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: mongoose.Types.ObjectId,
             ref: "User",
         },
     },
@@ -70,3 +70,4 @@ module.exports = Rental;
 
 //need to export so that we can use it in our frontend 
 //location is for the longtitude and latitude for google maps api
+//type: mongoose.Schema.Types.ObjectId,

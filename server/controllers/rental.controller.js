@@ -48,7 +48,7 @@ module.exports = {
         //change User to 
         // const id = String;
         // if (id.match(/^[0-9a-fA-F]{24}$/)) {
-        User.findById( req.params.id).then((user) => {
+        User.findById(req.params.id).then((user) => {
             Rental.find({ agent: user._id })
                     .populate('agent', 'email firstName lastName')
                     .then((rentals) => {res.json(rentals);})
