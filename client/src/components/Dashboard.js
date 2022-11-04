@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams, Link, NavLink }    from 'react-router-dom'; 
+import { useParams, Link, NavLink}    from 'react-router-dom'; 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
@@ -51,8 +51,8 @@ const Dashboard = ({isLoggedin}) => {
             <div>
             {user ? (
                         <div>
-                            <h3 className="regHeader"> Welcome Back Agent, {user.firstName}!</h3> 
-                            <div className="d-flex justify-content-between">   
+                            <h3 className="regHeader"> Welcome back {user.firstName}!</h3> 
+                            <div className="d-flex justify-content-end">   
                                 <button className="navbuttons"onClick={handleLogout}>Logout</button>
                             </div>
                         </div>
