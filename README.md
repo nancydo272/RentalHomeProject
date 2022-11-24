@@ -1,6 +1,6 @@
 # RentalHomeProject
 ### Group Members 
- * Nancu Do --> Project Lead
+ * Nancy Do --> Project Lead
  * Alicia Farris
  * Dean Chen 
  * Kareem Forte
@@ -12,7 +12,7 @@
 https://user-images.githubusercontent.com/98551986/203859037-5037c752-5135-4d0e-a5e1-e7e8c1c05551.mp4
 
 ## Inspiration: 
-This application will be used by property managers and agents who need a platform to save their rental home into a log online. We will be using full-stack MERN application with CRUD functions for users and rental homes. We will also use manual CSS and bootstrap to help style the pages, and if time allows, GoogleMaps Api integration. ![image](https://user-images.githubusercontent.com/98551986/203859715-614246f4-37c0-4146-b328-f430de1e6475.png)
+This application will be used by property managers and agents who need a platform to save their rental home into a log online. We will be using full-stack MERN application with CRUD functions for users and rental homes. We will also use manual CSS and bootstrap to help style the pages, and if time allows, GoogleMaps Api integration. 
 
 
 ### Technologies Used in this Project
